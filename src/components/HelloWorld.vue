@@ -26,8 +26,19 @@ export default {
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
+  font-size: 0.2rem;
+}
+h1{
+    font-size: 0.3rem;
 }
 a {
   color: #42b983;
+  font-size: 0.2rem;
+}
+p{
+    font-size: 0.3rem;
+}
+li{
+    font-size: 0.3rem;
 }
 </style>
