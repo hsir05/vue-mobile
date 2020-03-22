@@ -4,7 +4,8 @@
   </div>
 </template>
 <style lang="scss">
+@import '../styles/mixin';
 h1{
-    font-size: 0.5rem;
+     font-size: px2rem(18px);
 }
 </style>

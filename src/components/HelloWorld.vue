@@ -24,21 +24,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '../styles/mixin';
 h3 {
   margin: 40px 0 0;
-  font-size: 0.2rem;
+   font-size: px2rem(16px);
 }
 h1{
-    font-size: 0.3rem;
+font-size: px2rem(16px);
 }
 a {
   color: #42b983;
-  font-size: 0.2rem;
+font-size: px2rem(14px);
 }
 p{
-    font-size: 0.3rem;
+    font-size: px2rem(14px);
 }
 li{
-    font-size: 0.3rem;
+    font-size: px2rem(14px);
 }
 </style>
