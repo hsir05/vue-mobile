@@ -1,0 +1,18 @@
+/* 
+ * 此处 $base-font-size 具体数值根据设计图尺寸而定
+ * flexible中设置的标准是【fontSize=16px, when 屏幕宽度=375】，因此，按此标准进行计算，
+ * 若设计图为iPhone6(375*667)的二倍稿，则$base-font-size=32px
+ *
+ */ 
+@function px2rem($px, $base-font-size: 32px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// 使用，eg:
+// font-size: px2rem(18px);

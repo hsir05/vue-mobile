@@ -19,7 +19,7 @@
 
 #nav {
   padding: 30px;
-  font-size: 0.5rem;
+  font-size: px2rem(18px);
   a {
     font-weight: bold;
     color: #2c3e50;

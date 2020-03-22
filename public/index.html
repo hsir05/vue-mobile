@@ -16,12 +16,43 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script>
-        function styleReset(){
-            let deviceWidth = document.documentElement.clientWidth
-            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px' // 注意:iphone6要除以7.5
-        }
-        styleReset()
-        window.addEventListener('resize', styleReset);
+        // function styleReset(){
+        //     let deviceWidth = document.documentElement.clientWidth
+        //     console.log(deviceWidth);
+        //     if (deviceWidth < 750){
+        //         document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px' // 注意:iphone6要除以7.5
+        //     }
+        // }
+        // styleReset()
+        // window.addEventListener('resize', styleReset);
+        (function (doc, win) {
+                var docEl = win.document.documentElement;
+                var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+                /**
+                  * ================================================
+                  *   设置根元素font-size
+                  * 当设备宽度为375(iPhone6)时，根元素font-size=16px; 
+                  × ================================================
+                  */
+                var refreshRem = function () {
+                    var clientWidth = win.innerWidth
+                        || doc.documentElement.clientWidth
+                        || doc.body.clientWidth;
+
+                    console.log(clientWidth)
+                    if (!clientWidth) return;
+                    var fz;
+                    var width = clientWidth;
+                    fz = 16 * width / 375;
+                    docEl.style.fontSize = fz + 'px';
+                };
+
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, refreshRem, false);
+                doc.addEventListener('DOMContentLoaded', refreshRem, false);
+                refreshRem();
+
+            })(document, window);
     </script>
   </body>
 </html>
